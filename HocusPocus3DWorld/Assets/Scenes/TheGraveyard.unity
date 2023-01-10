@@ -492,8 +492,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598fa98e319d9e343a85b4a01a13e2cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  sprintModifier: 1.5
+  moveSpeed: 2
+  sprintModifier: 2
   crouchModifier: 0.5
   camera: {fileID: 1521870870}
 --- !u!54 &43967006
