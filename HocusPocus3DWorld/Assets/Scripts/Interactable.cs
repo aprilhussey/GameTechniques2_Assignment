@@ -5,7 +5,7 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     [SerializeField] private float radius = 3f;
-    private Transform interactionTransform;
+    private Transform interactableTransform;
     GameObject player;
 
     public virtual void Interact()
@@ -17,11 +17,12 @@ public class Interactable : MonoBehaviour
     void Awake()
     {
         player = GameObject.Find("Player");
+		interactableTransform = gameObject.transform;
     }
 
 	void Update()
 	{
-		float distance = Vector3.Distance(interactionTransform.position, player.transform.position);
+		float distance = Vector3.Distance(interactableTransform.position, player.transform.position);
 		if (distance <= radius)
 		{
 			if (Input.GetMouseButtonDown(0))
@@ -33,12 +34,12 @@ public class Interactable : MonoBehaviour
 
 	void OnDrawGizmosSelected()
 	{
-		if (interactionTransform == null)
+		if (interactableTransform == null)
 		{
-			interactionTransform = transform;
+			interactableTransform = transform;
 		}
 
 		Gizmos.color = Color.yellow;
-		Gizmos.DrawWireSphere(interactionTransform.position, radius);
+		Gizmos.DrawWireSphere(interactableTransform.position, radius);
 	}
 }
